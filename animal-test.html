@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0b0f">
+    <meta name="description" content="What Animal Are You? Take this fun 8-question personality test and discover your spirit animal. Lion, owl, dolphin, wolf, or cat? Share your result!">
+    <meta name="keywords" content="what animal are you, spirit animal quiz, personality test, animal personality, fun quiz">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jimmyllll.github.io/fun-tests/animal-test.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="What Animal Are You? — Fun Personality Test">
+    <meta property="og:description" content="Take this fun 8-question quiz to discover your spirit animal. Share your result!">
+    <meta property="og:url" content="https://jimmyllll.github.io/fun-tests/animal-test.html">
+    <meta property="og:image" content="https://jimmyllll.github.io/fun-tests/favicon.svg">
+    <meta name="twitter:card" content="summary">
+    <title>What Animal Are You? — Fun Spirit Animal Personality Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "What Animal Are You?",
+      "url": "https://jimmyllll.github.io/fun-tests/animal-test.html",
+      "description": "Fun personality test that reveals your spirit animal based on 8 questions.",
+      "applicationCategory": "Game",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How does the What Animal Are You test work?", "acceptedAnswer": { "@type": "Answer", "text": "Answer 8 fun questions about your personality and preferences. Each answer maps to animal traits, and your result reveals your spirit animal." } },
+        { "@type": "Question", "name": "Is this personality test accurate?", "acceptedAnswer": { "@type": "Answer", "text": "This test is for fun and entertainment. While based on personality dimensions, it's not a scientific assessment." } }
+      ]
+    }
+    </script>
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="index.html">✨ FunTests</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="animal-test.html" class="active">Animal</a>
+        <a href="love-calculator.html">Love</a>
+        <a href="psychological-age.html">Age</a>
+    </div>
+</nav>
+<main>
+    <h1>What Animal Are You? 🦁</h1>
+    <p class="subtitle">Answer 8 fun questions to discover your spirit animal!</p>
+
+    <div id="quizArea"></div>
+    <div id="resultArea" style="display:none;"></div>
+
+    <div class="stats">
+        👁️ Views <strong id="pv">-</strong>
+        <span class="stat-divider">|</span>
+        👤 Visitors <strong id="uv">-</strong>
+    </div>
+
+    <div class="seo-section">
+        <h2>What Animal Are You?</h2>
+        <p>Have you ever wondered which animal matches your personality? This fun quiz asks 8 questions about how you socialize, make decisions, and handle challenges. Based on your answers, you'll discover your spirit animal — are you a brave lion, a wise owl, a playful dolphin, a loyal wolf, or an independent cat?</p>
+        <h2>Spirit Animal Meanings</h2>
+        <ul>
+            <li><strong>🦁 Lion</strong> — Natural leader, brave, confident, and charismatic. You take charge and protect your pack.</li>
+            <li><strong>🦉 Owl</strong> — Wise, thoughtful, observant, and strategic. You see what others miss and plan ahead.</li>
+            <li><strong>🐬 Dolphin</strong> — Playful, social, creative, and energetic. You spread joy and connect easily with others.</li>
+            <li><strong>🐺 Wolf</strong> — Loyal, team-oriented, determined, and adaptable. You thrive in a pack but can stand alone.</li>
+            <li><strong>🐱 Cat</strong> — Independent, curious, calm, and self-sufficient. You do things your own way.</li>
+            <li><strong>🐘 Elephant</strong> — Patient, reliable, empathetic, and strong. You never forget and always protect loved ones.</li>
+            <li><strong>🦊 Fox</strong> — Clever, quick-witted, adaptable, and resourceful. You find creative solutions fast.</li>
+            <li><strong>🐼 Panda</strong> — Easygoing, peaceful, gentle, and unique. You go with the flow and enjoy life.</li>
+        </ul>
+        <h2>Share Your Result</h2>
+        <p>Once you get your result, share it with friends and challenge them to take the test too! Compare your spirit animals and see who matches. It's a great conversation starter and a fun way to learn about each other.</p>
+    </div>
+</main>
+<footer>
+    <p><a href="index.html">All Tests</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></p>
+    <p style="margin-top:0.4rem;">FunTests © 2026 · What Animal Are You?</p>
+</footer>
+<script src="js/counter.js"></script>
+<script>
+const QUESTIONS = [
+    { q: "It's Friday night. What are you doing?", a: [
+        { t: "Hosting a party or leading a group activity", s: { lion: 2, dolphin: 1 } },
+        { t: "Reading a book or watching a documentary", s: { owl: 2, cat: 1 } },
+        { t: "Hanging out with close friends", s: { wolf: 2, dolphin: 1 } },
+        { t: "Doing my own thing, whatever I feel like", s: { cat: 2, fox: 1 } },
+    ]},
+    { q: "In a group project, you are the one who...", a: [
+        { t: "Takes charge and assigns tasks", s: { lion: 2, elephant: 1 } },
+        { t: "Researches and plans the strategy", s: { owl: 2, fox: 1 } },
+        { t: "Keeps everyone motivated and having fun", s: { dolphin: 2, panda: 1 } },
+        { t: "Works independently on my part", s: { cat: 2, wolf: 1 } },
+    ]},
+    { q: "When facing a challenge, you...", a: [
+        { t: "Charge in headfirst with confidence", s: { lion: 2, fox: 1 } },
+        { t: "Analyze all options before acting", s: { owl: 2, elephant: 1 } },
+        { t: "Rally your friends to tackle it together", s: { wolf: 2, dolphin: 1 } },
+        { t: "Find a creative workaround", s: { fox: 2, cat: 1 } },
+    ]},
+    { q: "Your ideal vacation is...", a: [
+        { t: "An adventure trip with a big group", s: { lion: 2, dolphin: 1 } },
+        { t: "A quiet cabin with books and nature", s: { owl: 2, cat: 1 } },
+        { t: "A road trip with your best friends", s: { wolf: 2, panda: 1 } },
+        { t: "Somewhere unique and off the beaten path", s: { fox: 2, cat: 1 } },
+    ]},
+    { q: "How do you handle conflict?", a: [
+        { t: "Confront it directly and resolve it", s: { lion: 2, elephant: 1 } },
+        { t: "Stay calm and think before responding", s: { owl: 2, panda: 1 } },
+        { t: "Talk it out and find common ground", s: { dolphin: 2, wolf: 1 } },
+        { t: "Avoid it or find a clever exit", s: { cat: 2, fox: 1 } },
+    ]},
+    { q: "What's your communication style?", a: [
+        { t: "Bold, direct, and confident", s: { lion: 2, fox: 1 } },
+        { t: "Thoughtful, precise, and deep", s: { owl: 2, elephant: 1 } },
+        { t: "Warm, expressive, and playful", s: { dolphin: 2, panda: 1 } },
+        { t: "Quiet, selective, and independent", s: { cat: 2, wolf: 1 } },
+    ]},
+    { q: "Pick a word that describes you:", a: [
+        { t: "Brave", s: { lion: 2, wolf: 1 } },
+        { t: "Wise", s: { owl: 2, elephant: 1 } },
+        { t: "Fun", s: { dolphin: 2, panda: 1 } },
+        { t: "Free", s: { cat: 2, fox: 1 } },
+    ]},
+    { q: "What do you value most?", a: [
+        { t: "Respect and achievement", s: { lion: 2, elephant: 1 } },
+        { t: "Knowledge and truth", s: { owl: 2, fox: 1 } },
+        { t: "Friendship and connection", s: { dolphin: 2, wolf: 1 } },
+        { t: "Freedom and peace", s: { cat: 2, panda: 1 } },
+    ]},
+];
+
+const ANIMALS = {
+    lion: { emoji: "🦁", name: "Lion", traits: ["Brave", "Confident", "Natural Leader", "Charismatic"], desc: "You're a natural-born leader who isn't afraid to take charge. People look up to your courage and confidence. You protect those you care about and always rise to a challenge." },
+    owl: { emoji: "🦉", name: "Owl", traits: ["Wise", "Observant", "Strategic", "Thoughtful"], desc: "You're the wise one who sees what others miss. You think before you act and value knowledge above all. Your friends come to you for advice because you always have the right answer." },
+    dolphin: { emoji: "🐬", name: "Dolphin", traits: ["Playful", "Social", "Creative", "Energetic"], desc: "You're the life of the party! Playful and social, you connect with everyone you meet. Your positive energy is contagious and you make any situation more fun." },
+    wolf: { emoji: "🐺", name: "Wolf", traits: ["Loyal", "Team Player", "Determined", "Protective"], desc: "You're fiercely loyal and thrive in a team. You value your pack above all and will go to great lengths to protect them. Determined and reliable, you're the friend everyone can count on." },
+    cat: { emoji: "🐱", name: "Cat", traits: ["Independent", "Curious", "Calm", "Self-sufficient"], desc: "You march to your own beat. Independent and curious, you do things your way and don't follow the crowd. You're comfortable being alone and enjoy your freedom." },
+    elephant: { emoji: "🐘", name: "Elephant", traits: ["Patient", "Reliable", "Empathetic", "Strong"], desc: "You're the steady rock that others lean on. Patient and empathetic, you never forget a kindness and always remember your loved ones. Your strength is quiet but unshakeable." },
+    fox: { emoji: "🦊", name: "Fox", traits: ["Clever", "Quick-witted", "Adaptable", "Resourceful"], desc: "You're clever and quick on your feet. You find creative solutions to any problem and adapt to any situation. People admire your wit and resourcefulness." },
+    panda: { emoji: "🐼", name: "Panda", traits: ["Easygoing", "Peaceful", "Gentle", "Unique"], desc: "You're chill, easygoing, and uniquely yourself. You go with the flow and don't let stress get to you. Your gentle nature makes everyone feel calm around you." },
+};
+
+let currentQ = 0;
+let scores = {};
+
+const quizArea = document.getElementById("quizArea");
+const resultArea = document.getElementById("resultArea");
+
+function renderQuestion() {
+    if (currentQ >= QUESTIONS.length) { showResult(); return; }
+    const q = QUESTIONS[currentQ];
+    const progress = Math.round((currentQ / QUESTIONS.length) * 100);
+    quizArea.innerHTML = `
+        <div class="quiz-question">
+            <div class="quiz-progress">Question ${currentQ + 1} of ${QUESTIONS.length}</div>
+            <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progress}%"></div></div>
+            <div class="quiz-q-text">${q.q}</div>
+            ${q.a.map((opt, i) => `<button class="quiz-option" onclick="answer(${i})">${opt.t}</button>`).join("")}
+        </div>`;
+}
+
+function answer(idx) {
+    const opt = QUESTIONS[currentQ].a[idx];
+    for (const animal in opt.s) {
+        scores[animal] = (scores[animal] || 0) + opt.s[animal];
+    }
+    currentQ++;
+    renderQuestion();
+}
+
+function showResult() {
+    let winner = "cat", maxScore = 0;
+    for (const a in scores) {
+        if (scores[a] > maxScore) { maxScore = scores[a]; winner = a; }
+    }
+    const animal = ANIMALS[winner];
+    quizArea.style.display = "none";
+    resultArea.style.display = "block";
+    resultArea.innerHTML = `
+        <div class="result-card">
+            <div class="result-emoji">${animal.emoji}</div>
+            <div class="result-title">You are a ${animal.name}!</div>
+            <div class="result-desc">${animal.desc}</div>
+            <div class="result-traits">
+                ${animal.traits.map(t => `<span class="trait-tag">${t}</span>`).join("")}
+            </div>
+            <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
+                <button class="btn" onclick="shareResult('${animal.name}', '${animal.emoji}')">📤 Share Result</button>
+                <button class="btn btn-secondary" onclick="restart()">🔄 Retake Test</button>
+            </div>
+        </div>`;
+}
+
+function shareResult(name, emoji) {
+    const text = `I'm a ${emoji} ${name}! What animal are you? Take the test:`;
+    const url = location.href;
+    if (navigator.share) {
+        navigator.share({ title: "What Animal Are You?", text: text, url: url }).catch(() => copyShare(text, url));
+    } else {
+        copyShare(text, url);
+    }
+}
+
+function copyShare(text, url) {
+    const full = text + " " + url;
+    navigator.clipboard.writeText(full).then(() => {
+        alert("Copied! Paste to share with friends:\n\n" + full);
+    }).catch(() => {
+        window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url), "_blank");
+    });
+}
+
+function restart() {
+    currentQ = 0;
+    scores = {};
+    quizArea.style.display = "block";
+    resultArea.style.display = "none";
+    renderQuestion();
+}
+
+renderQuestion();
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0b0f">
+    <meta name="description" content="Love Calculator — enter two names and find out your compatibility score! Free, instant, fun. Share your love percentage with friends!">
+    <meta name="keywords" content="love calculator, name compatibility, love test, relationship calculator, love percentage, couple test">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jimmyllll.github.io/fun-tests/love-calculator.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Love Calculator — Test Your Name Compatibility">
+    <meta property="og:description" content="Enter two names and find out your love compatibility score. Share with friends!">
+    <meta property="og:url" content="https://jimmyllll.github.io/fun-tests/love-calculator.html">
+    <meta property="og:image" content="https://jimmyllll.github.io/fun-tests/favicon.svg">
+    <meta name="twitter:card" content="summary">
+    <title>Love Calculator — Name Compatibility Test | Free Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Love Calculator",
+      "url": "https://jimmyllll.github.io/fun-tests/love-calculator.html",
+      "description": "Free love calculator. Enter two names to find out your compatibility score.",
+      "applicationCategory": "Game",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How does the Love Calculator work?", "acceptedAnswer": { "@type": "Answer", "text": "The Love Calculator uses a deterministic algorithm based on the letters in both names to generate a compatibility percentage. It's for fun and entertainment only." } },
+        { "@type": "Question", "name": "Is the love compatibility score real?", "acceptedAnswer": { "@type": "Answer", "text": "No, this is a fun entertainment tool. The score is generated from an algorithm and has no scientific basis." } }
+      ]
+    }
+    </script>
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="index.html">✨ FunTests</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="animal-test.html">Animal</a>
+        <a href="love-calculator.html" class="active">Love</a>
+        <a href="psychological-age.html">Age</a>
+    </div>
+</nav>
+<main>
+    <h1>Love Calculator 💕</h1>
+    <p class="subtitle">Enter two names and discover your compatibility score!</p>
+
+    <div class="tool-card">
+        <div style="margin-bottom:1rem;">
+            <input type="text" id="name1" placeholder="Your name..." onkeydown="if(event.key==='Enter')calculateLove()">
+        </div>
+        <div style="text-align:center;font-size:1.5rem;margin-bottom:1rem;">💕</div>
+        <div style="margin-bottom:1rem;">
+            <input type="text" id="name2" placeholder="Partner's name..." onkeydown="if(event.key==='Enter')calculateLove()">
+        </div>
+        <button class="btn" onclick="calculateLove()" style="width:100%;">Calculate Love 💗</button>
+    </div>
+
+    <div id="resultBox" style="display:none;">
+        <div class="result-card">
+            <div style="font-size:0.85rem;color:var(--text-dim);margin-bottom:0.5rem;">
+                <strong id="rName1"></strong> ❤ <strong id="rName2"></strong>
+            </div>
+            <div class="result-score" id="loveScore">0%</div>
+            <div id="loveMsg" style="margin-top:0.5rem;font-size:0.9rem;color:var(--text-dim);"></div>
+            <div id="loveBar" style="height:10px;background:var(--bg-2);border-radius:5px;overflow:hidden;margin-top:1rem;">
+                <div id="loveFill" style="height:100%;width:0;background:linear-gradient(90deg,#e84393,#fd79a8);border-radius:5px;transition:width 1s ease;"></div>
+            </div>
+            <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;">
+                <button class="btn" onclick="shareLove()">📤 Share Result</button>
+                <button class="btn btn-secondary" onclick="resetLove()">🔄 Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        👁️ Views <strong id="pv">-</strong>
+        <span class="stat-divider">|</span>
+        👤 Visitors <strong id="uv">-</strong>
+    </div>
+
+    <div class="seo-section">
+        <h2>Love Calculator</h2>
+        <p>The Love Calculator is a fun tool that calculates a compatibility percentage between two people based on their names. Simply enter your name and your partner's name, click calculate, and get your love score instantly!</p>
+        <h2>How It Works</h2>
+        <p>The calculator uses a deterministic algorithm based on the letters in both names. The same pair of names will always produce the same result, so you can share it with friends and they'll get the same score. This is purely for entertainment — no scientific basis!</p>
+        <h2>Love Score Meanings</h2>
+        <ul>
+            <li><strong>90-100%</strong> — Perfect match! Soulmates 💞</li>
+            <li><strong>70-89%</strong> — Great compatibility, strong connection 💗</li>
+            <li><strong>50-69%</strong> — Good potential, work on it 💛</li>
+            <li><strong>30-49%</strong> — It's complicated, but anything is possible 💔</li>
+            <li><strong>0-29%</strong> — Better as friends? 😅</li>
+        </ul>
+        <h2>Fun Ways to Use It</h2>
+        <ul>
+            <li>Test with your crush and see if the stars align!</li>
+            <li>Compare your name with different celebrity crushes</li>
+            <li>Challenge friends to find the highest-scoring couple</li>
+            <li>Share results on social media for laughs</li>
+        </ul>
+        <p><em>Disclaimer: This love calculator is for entertainment purposes only. Real relationships are built on trust, communication, and mutual respect — not name algorithms!</em></p>
+    </div>
+</main>
+<footer>
+    <p><a href="index.html">All Tests</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></p>
+    <p style="margin-top:0.4rem;">FunTests © 2026 · Love Calculator</p>
+</footer>
+<script src="js/counter.js"></script>
+<script>
+function calculateLove() {
+    const n1 = document.getElementById("name1").value.trim();
+    const n2 = document.getElementById("name2").value.trim();
+    if (!n1 || !n2) return;
+
+    // Deterministic algorithm based on name letters
+    const combined = (n1.toLowerCase() + n2.toLowerCase()).replace(/\s/g, "");
+    let hash = 0;
+    for (let i = 0; i < combined.length; i++) {
+        hash = ((hash << 5) - hash) + combined.charCodeAt(i);
+        hash = hash & hash;
+    }
+    const score = Math.abs(hash) % 101;
+
+    document.getElementById("rName1").textContent = n1;
+    document.getElementById("rName2").textContent = n2;
+
+    const box = document.getElementById("resultBox");
+    box.style.display = "block";
+
+    // Animate score
+    const scoreEl = document.getElementById("loveScore");
+    let current = 0;
+    const interval = setInterval(() => {
+        current += 2;
+        if (current >= score) { current = score; clearInterval(interval); }
+        scoreEl.textContent = current + "%";
+    }, 30);
+
+    // Animate bar
+    setTimeout(() => { document.getElementById("loveFill").style.width = score + "%"; }, 100);
+
+    // Message
+    const msgs = {
+        high: ["Perfect match! Soulmates! 💞", "Love is in the air! 💘", "A match made in heaven! 👰💍🤵"],
+        good: ["Great chemistry! 💗", "There's something special here! ✨", "Strong connection detected! 💕"],
+        mid: ["Good potential, nurture it! 🌱", "Could work with some effort! 💪", "Friends first, love later? 😊"],
+        low: ["It's complicated... 😬", "Opposites attract? Maybe... 🤔", "Better as friends? 😅"],
+        verylow: ["Yikes! Maybe try someone else? 😂", "The stars say... no. 🙅", "Friendship zone activated! 🤝"],
+    };
+    let msg;
+    if (score >= 90) msg = msgs.high[Math.floor(Math.random() * 3)];
+    else if (score >= 70) msg = msgs.good[Math.floor(Math.random() * 3)];
+    else if (score >= 50) msg = msgs.mid[Math.floor(Math.random() * 3)];
+    else if (score >= 30) msg = msgs.low[Math.floor(Math.random() * 3)];
+    else msg = msgs.verylow[Math.floor(Math.random() * 3)];
+    document.getElementById("loveMsg").textContent = msg;
+
+    // Store for sharing
+    window._loveScore = score;
+    window._loveNames = n1 + " & " + n2;
+}
+
+function shareLove() {
+    const text = `${window._loveNames} got ${window._loveScore}% compatibility! Test yours:`;
+    const url = location.href;
+    if (navigator.share) {
+        navigator.share({ title: "Love Calculator", text: text, url: url }).catch(() => copyLove(text, url));
+    } else {
+        copyLove(text, url);
+    }
+}
+
+function copyLove(text, url) {
+    const full = text + " " + url;
+    navigator.clipboard.writeText(full).then(() => {
+        alert("Copied! Share with friends:\n\n" + full);
+    }).catch(() => {
+        window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url), "_blank");
+    });
+}
+
+function resetLove() {
+    document.getElementById("resultBox").style.display = "none";
+    document.getElementById("name1").value = "";
+    document.getElementById("name2").value = "";
+    document.getElementById("name1").focus();
+}
+</script>
+</body>
+</html>

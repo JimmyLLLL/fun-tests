@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0b0f">
+    <meta name="description" content="Psychological Age Test — answer fun lifestyle questions to discover your mental age. Are you wise beyond your years or young at heart? Share your result!">
+    <meta name="keywords" content="psychological age test, mental age quiz, what is my mental age, psychological age calculator, fun personality test">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jimmyllll.github.io/fun-tests/psychological-age.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Psychological Age Test — What's Your Mental Age?">
+    <meta property="og:description" content="Answer fun questions to discover your psychological age. Are you old soul or young at heart?">
+    <meta property="og:url" content="https://jimmyllll.github.io/fun-tests/psychological-age.html">
+    <meta property="og:image" content="https://jimmyllll.github.io/fun-tests/favicon.svg">
+    <meta name="twitter:card" content="summary">
+    <title>Psychological Age Test — What's Your Mental Age? | Free Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Psychological Age Test",
+      "url": "https://jimmyllll.github.io/fun-tests/psychological-age.html",
+      "description": "Fun quiz that calculates your psychological age based on lifestyle questions.",
+      "applicationCategory": "Game",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="index.html">✨ FunTests</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="animal-test.html">Animal</a>
+        <a href="love-calculator.html">Love</a>
+        <a href="psychological-age.html" class="active">Age</a>
+    </div>
+</nav>
+<main>
+    <h1>Psychological Age Test 🧠</h1>
+    <p class="subtitle">Answer 8 questions to discover your mental age!</p>
+
+    <div id="quizArea"></div>
+    <div id="resultArea" style="display:none;"></div>
+
+    <div class="stats">
+        👁️ Views <strong id="pv">-</strong>
+        <span class="stat-divider">|</span>
+        👤 Visitors <strong id="uv">-</strong>
+    </div>
+
+    <div class="seo-section">
+        <h2>Psychological Age Test</h2>
+        <p>Have you ever been told you're "mature for your age" or "young at heart"? This fun quiz analyzes your lifestyle habits, preferences, and attitudes to estimate your psychological age — which might be very different from your actual age!</p>
+        <h2>What is Psychological Age?</h2>
+        <p>Psychological age refers to how old you act and feel, as opposed to your chronological age (how many years you've been alive). Someone who is 25 might have the wisdom and patience of a 50-year-old, while a 60-year-old might have the playful energy of a 20-year-old.</p>
+        <h2>Possible Results</h2>
+        <ul>
+            <li><strong>👶 8-15: The Eternal Child</strong> — Playful, curious, and full of wonder. You see the world with fresh eyes.</li>
+            <li><strong>🧑 16-25: Young & Free</strong> — Energetic, adventurous, and living in the moment. You embrace new experiences.</li>
+            <li><strong>👩 26-40: Balanced Adult</strong> — Responsible but fun. You've found a good balance between work and play.</li>
+            <li><strong>🧓 41-60: Wise Mentor</strong> — Patient, thoughtful, and experienced. Others come to you for guidance.</li>
+            <li><strong>👴 61-80: Old Soul</strong> — Calm, philosophical, and deeply wise. You've seen it all and nothing fazes you.</li>
+        </ul>
+        <p><em>Note: This test is for entertainment only and is not a psychological assessment.</em></p>
+    </div>
+</main>
+<footer>
+    <p><a href="index.html">All Tests</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></p>
+    <p style="margin-top:0.4rem;">FunTests © 2026 · Psychological Age Test</p>
+</footer>
+<script src="js/counter.js"></script>
+<script>
+const QUESTIONS = [
+    { q: "What time do you usually wake up on weekends?", a: [
+        { t: "Noon or later — sleep is life", age: 12 },
+        { t: "9-10 AM, relaxed morning", age: 22 },
+        { t: "7-8 AM, can't sleep in anymore", age: 40 },
+        { t: "5-6 AM, habit I can't break", age: 65 },
+    ]},
+    { q: "Your phone rings. What's your reaction?", a: [
+        { t: "Who's calling?! Let me check everything first", age: 15 },
+        { t: "Text me instead, please", age: 25 },
+        { t: "Answer it, it might be important", age: 45 },
+        { t: "I let it go to voicemail, I'll call back", age: 70 },
+    ]},
+    { q: "Pick your ideal evening:", a: [
+        { t: "Gaming or TikTok until 3 AM", age: 14 },
+        { t: "Out with friends at a bar or event", age: 23 },
+        { t: "Dinner and a good movie at home", age: 42 },
+        { t: "A book and a cup of tea, in bed by 10", age: 68 },
+    ]},
+    { q: "How do you handle new technology?", a: [
+        { t: "I'm always first to try new apps and gadgets", age: 16 },
+        { t: "I pick it up quickly when I need to", age: 28 },
+        { t: "I learn what I need, no rush", age: 48 },
+        { t: "I prefer things the way they were", age: 70 },
+    ]},
+    { q: "What's your attitude toward rules?", a: [
+        { t: "Rules? What rules?", age: 13 },
+        { t: "I bend them if no one gets hurt", age: 24 },
+        { t: "Rules exist for a reason, I follow them", age: 50 },
+        { t: "I've learned why rules matter the hard way", age: 72 },
+    ]},
+    { q: "How do you spend money?", a: [
+        { t: "What money? It's gone the day I get it", age: 15 },
+        { t: "I try to save but impulse buys happen", age: 27 },
+        { t: "Budget, save, invest — responsible", age: 45 },
+        { t: "I've saved enough, I spend on what matters", age: 68 },
+    ]},
+    { q: "What bothers you most?", a: [
+        { t: "Being bored or having no plans", age: 14 },
+        { t: "Missing out on what friends are doing", age: 25 },
+        { t: "Lack of time to get everything done", age: 44 },
+        { t: "Young people these days and their phones", age: 72 },
+    ]},
+    { q: "How do you feel about your birthday?", a: [
+        { t: "PARTY! I want everyone to celebrate me!", age: 12 },
+        { t: "Dinner with friends, low-key celebration", age: 26 },
+        { t: "Quiet day, maybe cake with family", age: 46 },
+        { t: "Just another day, honestly", age: 70 },
+    ]},
+];
+
+let currentQ = 0;
+let totalAge = 0;
+const quizArea = document.getElementById("quizArea");
+const resultArea = document.getElementById("resultArea");
+
+function renderQuestion() {
+    if (currentQ >= QUESTIONS.length) { showResult(); return; }
+    const q = QUESTIONS[currentQ];
+    const progress = Math.round((currentQ / QUESTIONS.length) * 100);
+    quizArea.innerHTML = `
+        <div class="quiz-question">
+            <div class="quiz-progress">Question ${currentQ + 1} of ${QUESTIONS.length}</div>
+            <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progress}%"></div></div>
+            <div class="quiz-q-text">${q.q}</div>
+            ${q.a.map((opt, i) => `<button class="quiz-option" onclick="answer(${i})">${opt.t}</button>`).join("")}
+        </div>`;
+}
+
+function answer(idx) {
+    totalAge += QUESTIONS[currentQ].a[idx].age;
+    currentQ++;
+    renderQuestion();
+}
+
+function showResult() {
+    const avgAge = Math.round(totalAge / QUESTIONS.length);
+    let emoji, label, desc;
+    if (avgAge <= 15) { emoji = "👶"; label = "The Eternal Child"; desc = "You're young at heart and full of wonder! Life is an adventure and you approach it with curiosity and playfulness. Never lose that spark!"; }
+    else if (avgAge <= 25) { emoji = "🧑"; label = "Young & Free"; desc = "You're energetic, adventurous, and living in the moment. You embrace new experiences and aren't afraid to take risks. Enjoy the ride!"; }
+    else if (avgAge <= 40) { emoji = "👩"; label = "Balanced Adult"; desc = "You've found a great balance between responsibility and fun. You can be serious when needed but still know how to enjoy life. Well done!"; }
+    else if (avgAge <= 60) { emoji = "🧓"; label = "Wise Mentor"; desc = "You're patient, thoughtful, and experienced. Friends come to you for advice because you've been through it all. Your wisdom is valued."; }
+    else { emoji = "👴"; label = "Old Soul"; desc = "You're calm, philosophical, and deeply wise. Nothing fazes you anymore. You've seen it all and approach life with serene understanding."; }
+
+    quizArea.style.display = "none";
+    resultArea.style.display = "block";
+
+    // Animate the age counter
+    let displayAge = 0;
+    resultArea.innerHTML = `
+        <div class="result-card">
+            <div class="result-emoji">${emoji}</div>
+            <div class="result-title">Your Mental Age is</div>
+            <div class="result-score" id="ageNum">0</div>
+            <div style="font-size:0.85rem;color:var(--text-dim);">years old</div>
+            <div style="font-weight:700;color:var(--accent-hover);margin-top:0.5rem;">${label}</div>
+            <div class="result-desc">${desc}</div>
+            <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
+                <button class="btn" onclick="shareAge(${avgAge}, '${label}')">📤 Share Result</button>
+                <button class="btn btn-secondary" onclick="restart()">🔄 Retake Test</button>
+            </div>
+        </div>`;
+    const ageEl = document.getElementById("ageNum");
+    const interval = setInterval(() => {
+        displayAge += 2;
+        if (displayAge >= avgAge) { displayAge = avgAge; clearInterval(interval); }
+        ageEl.textContent = displayAge;
+    }, 40);
+}
+
+function shareAge(age, label) {
+    const text = `My psychological age is ${age} — ${label}! What's yours? Take the test:`;
+    const url = location.href;
+    if (navigator.share) {
+        navigator.share({ title: "Psychological Age Test", text: text, url: url }).catch(() => copyText(text, url));
+    } else {
+        copyText(text, url);
+    }
+}
+
+function copyText(text, url) {
+    const full = text + " " + url;
+    navigator.clipboard.writeText(full).then(() => {
+        alert("Copied! Share with friends:\n\n" + full);
+    }).catch(() => {
+        window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url), "_blank");
+    });
+}
+
+function restart() {
+    currentQ = 0;
+    totalAge = 0;
+    quizArea.style.display = "block";
+    resultArea.style.display = "none";
+    renderQuestion();
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
