@@ -184,5 +184,35 @@
     <div style="margin-top:0.6rem;font-size:0.72rem;opacity:0.6;">More: <a href="https://jimmywithfiona.com/">JimmyWithFiona — Home</a> · <a href="https://jimmywithfiona.com/brick-breaker/">Brick Breaker Game</a> · <a href="https://jimmywithfiona.com/mortgage-calculator/">Mortgage Calculator</a> · <a href="https://jimmywithfiona.com/wheel-spinner/">Wheel Spinner</a> · <a href="https://jimmywithfiona.com/game-2048/">2048 Game</a> · <a href="https://jimmywithfiona.com/bmi-calculator/">BMI Calculator</a></div>
 </footer>
 <script defer src="js/counter.js"></script>
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"Quiz":"测验","About":"关于","Privacy":"隐私","Contact":"联系","🏠 Home":"🏠 首页","Privacy Policy":"隐私政策","Last updated: July 23, 2026":"最后更新：2026 年 7 月 23 日","FunTests is a collection of browser-based personality quizzes. All quiz calculations happen entirely in your browser. We do not collect, store, or transmit your quiz answers or personal information.":"FunTests 是一系列基于浏览器的人格测验。所有测验计算完全在你的浏览器中进行。我们不收集、存储或传输你的测验答案或个人信息。","1. Data Processing":"1. 数据处理","All quiz logic — scoring, result generation, love calculation — runs locally in your browser. Your answers and names are never sent to any server.":"所有测验逻辑 — 评分、结果生成、爱情值计算 — 都在你的浏览器中本地运行。你的答案和姓名绝不会发送到任何服务器。","2. Local Storage":"2. 本地存储","We use your browser's local storage only for anonymous visit counting. This data stays on your device.":"我们仅使用浏览器的本地存储进行匿名访问计数。此数据保留在你的设备上。","3. Third-Party Services":"3. 第三方服务","— hosts this website. May log standard request data for security.":"— 托管本网站。可能出于安全目的记录标准请求数据。","— anonymous page view counting. No personal data sent.":"— 匿名页面浏览计数。不发送个人数据。","4. Advertising":"4. 广告","This site may display ads via Google AdSense. Google uses cookies to serve ads. Manage preferences at":"本网站可能通过 Google AdSense 显示广告。Google 使用 Cookie 来投放广告。在此管理偏好设置：","or opt out at":"或在以下网址退出：","5. Children's Privacy":"5. 儿童隐私","These quizzes are suitable for all ages. We do not collect any personal information from anyone.":"这些测验适合所有年龄段。我们不收集任何人的个人信息。","6. Entertainment Disclaimer":"6. 娱乐免责声明","All tests are for entertainment only and are not psychological assessments. We do not store or analyze your quiz results.":"所有测试仅供娱乐，不是心理评估。我们不存储或分析你的测验结果。","7. Contact":"7. 联系","Questions? Visit our":"有疑问？访问我们的","contact page":"联系页面","👁️ Views":"👁️ 浏览量","👤 Visitors":"👤 访客","More:":"更多：","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块游戏","Mortgage Calculator":"房贷计算器","Wheel Spinner":"转盘","2048 Game":"2048 游戏","BMI Calculator":"BMI 计算器"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>
