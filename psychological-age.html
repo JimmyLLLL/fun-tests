@@ -276,7 +276,7 @@ function renderQuestion() {
     const progress = Math.round((currentQ / QUESTIONS.length) * 100);
     quizArea.innerHTML = `
         <div class="quiz-question">
-            <div class="quiz-progress">Question ${currentQ + 1} of ${QUESTIONS.length}</div>
+            <div class="quiz-progress">${(navigator.language||'').toLowerCase().startsWith('zh')?'第 '+(currentQ + 1)+' 题，共 '+QUESTIONS.length+' 题':'Question '+(currentQ + 1)+' of '+QUESTIONS.length}</div>
             <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progress}%"></div></div>
             <div class="quiz-q-text">${q.q}</div>
             ${q.a.map((opt, i) => `<button class="quiz-option" onclick="answer(${i})">${opt.t}</button>`).join("")}
@@ -353,5 +353,36 @@ function restart() {
 
 renderQuestion();
 </script>
+
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"Psychological Age Test — What's Your Mental Age? | Free Quiz":"心理年龄测试 — 你的心理年龄是几岁？| 免费测试","Home":"首页","Animal":"动物","Love":"爱情","Age":"年龄","🏠 Home":"🏠 首页","Psychological Age Test 🧠":"心理年龄测试 🧠","Answer 8 questions to discover your mental age!":"回答 8 个问题，发现你的心理年龄！","🔗 Related Tests":"🔗 相关测试","What Animal Are You?":"你是哪种动物？","Love Calculator":"爱情计算器","👁️ Views":"👁️ 浏览","👤 Visitors":"👤 访客","Psychological Age Test":"心理年龄测试","Have you ever been told you're \"mature for your age\" or \"young at heart\"? This fun quiz analyzes your lifestyle habits, preferences, and attitudes to estimate your psychological age — which might be very different from your actual age!":"有人说过你“少年老成”或“心态年轻”吗？这个趣味测试会分析你的生活习惯、偏好和态度，估算你的心理年龄——它可能和你的实际年龄大不相同！","What is Psychological Age?":"什么是心理年龄？","Psychological age refers to how old you act and feel, as opposed to your chronological age (how many years you've been alive). Someone who is 25 might have the wisdom and patience of a 50-year-old, while a 60-year-old might have the playful energy of a 20-year-old.":"心理年龄指的是你表现出的状态和心态的年龄，与实际年龄（你活了多少年）相对。一个 25 岁的人可能拥有 50 岁人的睿智和耐心，而一个 60 岁的人可能拥有 20 岁人的活泼精力。","Possible Results":"可能的结果","👶 8-15: The Eternal Child — Playful, curious, and full of wonder. You see the world with fresh eyes.":"👶 8-15：永远的孩童 — 爱玩、好奇、充满惊奇。你用新鲜的眼光看世界。","🧑 16-25: Young & Free — Energetic, adventurous, and living in the moment. You embrace new experiences.":"🧑 16-25：年轻自由 — 精力充沛、爱冒险、活在当下。你拥抱新体验。","👩 26-40: Balanced Adult — Responsible but fun. You've found a good balance between work and play.":"👩 26-40：平衡的成年人 — 有责任感又不失趣味。你在工作与玩乐间找到了好的平衡。","🧓 41-60: Wise Mentor — Patient, thoughtful, and experienced. Others come to you for guidance.":"🧓 41-60：睿智的导师 — 耐心、深思熟虑、经验丰富。别人会来找你寻求指引。","👴 61-80: Old Soul — Calm, philosophical, and deeply wise. You've seen it all and nothing fazes you.":"👴 61-80：老灵魂 — 冷静、富有哲理、深邃睿智。你什么都见过，没有什么能撼动你。","Note: This test is for entertainment only and is not a psychological assessment.":"注意：本测试仅供娱乐，并非心理学评估。","All Tests":"全部测试","Privacy":"隐私","Contact":"联系","FunTests © 2026 · Psychological Age Test":"FunTests © 2026 · 心理年龄测试","More:":"更多：","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块游戏","Mortgage Calculator":"房贷计算器","Wheel Spinner":"转盘抽奖","2048 Game":"2048 游戏","BMI Calculator":"BMI 计算器","What time do you usually wake up on weekends?":"周末你通常几点起床？","Noon or later — sleep is life":"中午或更晚——睡觉就是命","9-10 AM, relaxed morning":"上午 9-10 点，轻松的早晨","7-8 AM, can't sleep in anymore":"上午 7-8 点，已经睡不了懒觉了","5-6 AM, habit I can't break":"上午 5-6 点，改不掉的习惯","Your phone rings. What's your reaction?":"手机响了。你的反应是？","Who's calling?! Let me check everything first":"谁打来的？！让我先把所有东西查一遍","Text me instead, please":"请改发短信吧","Answer it, it might be important":"接起来，可能是要紧事","I let it go to voicemail, I'll call back":"让它转语音信箱，我再回拨","Pick your ideal evening:":"选一个理想的夜晚：","Gaming or TikTok until 3 AM":"打游戏或刷 TikTok 到凌晨 3 点","Out with friends at a bar or event":"和朋友去酒吧或活动","Dinner and a good movie at home":"在家吃晚餐看部好电影","A book and a cup of tea, in bed by 10":"一本书一杯茶，10 点上床","How do you handle new technology?":"你如何应对新科技？","I'm always first to try new apps and gadgets":"我总是第一个尝试新应用和新玩意儿","I pick it up quickly when I need to":"需要时我学得很快","I learn what I need, no rush":"学到需要的就行，不着急","I prefer things the way they were":"我更喜欢事物原来的样子","What's your attitude toward rules?":"你对规则的态度是？","Rules? What rules?":"规则？什么规则？","I bend them if no one gets hurt":"只要没人受伤，我会变通","Rules exist for a reason, I follow them":"规则存在是有道理的，我遵守","I've learned why rules matter the hard way":"我是吃过苦头才懂规则的重要","How do you spend money?":"你怎么花钱？","What money? It's gone the day I get it":"什么钱？到手的当天就没了","I try to save but impulse buys happen":"我想存钱，但总会冲动消费","Budget, save, invest — responsible":"做预算、存钱、投资——很负责任","I've saved enough, I spend on what matters":"已经存够了，把钱花在重要的事上","What bothers you most?":"最让你烦的是？","Being bored or having no plans":"无聊或没有安排","Missing out on what friends are doing":"错过朋友们在做的事","Lack of time to get everything done":"没时间把所有事做完","Young people these days and their phones":"现在的年轻人和他们的手机","How do you feel about your birthday?":"你对生日怎么看？","PARTY! I want everyone to celebrate me!":"开派对！我要所有人都为我庆祝！","Dinner with friends, low-key celebration":"和朋友吃饭，低调庆祝","Quiet day, maybe cake with family":"安静的一天，也许和家人吃个蛋糕","Just another day, honestly":"说实话，就是普通的一天","Question ${currentQ + 1} of ${QUESTIONS.length}":"第 ${currentQ + 1} 题，共 ${QUESTIONS.length} 题","The Eternal Child":"永远的孩童","Young & Free":"年轻自由","Balanced Adult":"平衡的成年人","Wise Mentor":"睿智的导师","Old Soul":"老灵魂","You're young at heart and full of wonder! Life is an adventure and you approach it with curiosity and playfulness. Never lose that spark!":"你心态年轻、充满好奇！生活对你来说是一场冒险，你用好奇和玩心去面对。永远别失去这份火花！","You're energetic, adventurous, and living in the moment. You embrace new experiences and aren't afraid to take risks. Enjoy the ride!":"你精力充沛、爱冒险、活在当下。你拥抱新体验，不怕冒险。好好享受这段旅程！","You've found a great balance between responsibility and fun. You can be serious when needed but still know how to enjoy life. Well done!":"你在责任与乐趣间找到了很好的平衡。需要时能认真，也懂得享受生活。干得漂亮！","You're patient, thoughtful, and experienced. Friends come to you for advice because you've been through it all. Your wisdom is valued.":"你耐心、深思熟虑、经验丰富。朋友来找你寻求建议，因为你什么都经历过。你的智慧备受珍视。","You're calm, philosophical, and deeply wise. Nothing fazes you anymore. You've seen it all and approach life with serene understanding.":"你冷静、富有哲理、深邃睿智。已经没有什么能撼动你。你什么都见过，以宁静的领悟面对生活。","Your Mental Age is":"你的心理年龄是","years old":"岁","📤 Share Result":"📤 分享结果","🔄 Retake Test":"🔄 重做测试","My psychological age is ${age} — ${label}! What's yours? Take the test:":"我的心理年龄是 ${age} 岁——${label}！你的呢？快来测一测：","Copied! Share with friends:\n\n":"已复制！分享给朋友：\n\n"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>

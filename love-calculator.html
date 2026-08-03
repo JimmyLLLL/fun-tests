@@ -335,5 +335,36 @@ function resetLove() {
     document.getElementById("name1").focus();
 }
 </script>
+
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"Love Calculator — Name Compatibility Test | Free Online":"爱情计算器 — 姓名契合度测试 | 免费在线","Home":"首页","Animal":"动物","Love":"爱情","Age":"年龄","🏠 Home":"🏠 首页","Love Calculator 💕":"爱情计算器 💕","Enter two names and discover your compatibility score!":"输入两个名字，测出你们的契合度！","Your name...":"你的名字...","Partner's name...":"另一半的名字...","Calculate Love 💗":"计算爱情 💗","📤 Share Result":"📤 分享结果","🔄 Try Again":"🔄 再试一次","🔗 Related Tests":"🔗 相关测试","What Animal Are You?":"你是哪种动物？","Psychological Age":"心理年龄","👁️ Views":"👁️ 浏览","👤 Visitors":"👤 访客","Love Calculator":"爱情计算器","The Love Calculator is a fun tool that calculates a compatibility percentage between two people based on their names. Simply enter your name and your partner's name, click calculate, and get your love score instantly!":"爱情计算器是一个有趣的小工具，根据两个人的名字计算契合度百分比。只需输入你和另一半的名字，点击计算，立刻获取你们的爱情分数！","How It Works":"工作原理","The calculator uses a deterministic algorithm based on the letters in both names. The same pair of names will always produce the same result, so you can share it with friends and they'll get the same score. This is purely for entertainment — no scientific basis!":"计算器采用基于两个名字中字母的确定性算法。同一对名字总会得出相同结果，所以你可以分享给朋友，他们也会得到同样的分数。这纯属娱乐——没有任何科学依据！","Love Score Meanings":"爱情分数含义","90-100% — Perfect match! Soulmates 💞":"90-100% — 天作之合！灵魂伴侣 💞","70-89% — Great compatibility, strong connection 💗":"70-89% — 契合度很高，联系紧密 💗","50-69% — Good potential, work on it 💛":"50-69% — 潜力不错，继续努力 💛","30-49% — It's complicated, but anything is possible 💔":"30-49% — 有点复杂，但一切皆有可能 💔","0-29% — Better as friends? 😅":"0-29% — 还是做朋友吧？😅","Fun Ways to Use It":"趣味玩法","Test with your crush and see if the stars align!":"和心仪的人一起测，看星星是否为你们连成一线！","Compare your name with different celebrity crushes":"把你的名字和各种明星偶像配对比较","Challenge friends to find the highest-scoring couple":"挑战朋友们，看看哪对得分最高","Share results on social media for laughs":"在社交媒体上分享结果，博大家一笑","Disclaimer: This love calculator is for entertainment purposes only. Real relationships are built on trust, communication, and mutual respect — not name algorithms!":"免责声明：本爱情计算器仅供娱乐。真正的关系建立在信任、沟通和相互尊重之上——而不是名字算法！","All Tests":"全部测试","Privacy":"隐私","Contact":"联系","FunTests © 2026 · Love Calculator":"FunTests © 2026 · 爱情计算器","More:":"更多：","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块游戏","Mortgage Calculator":"房贷计算器","Wheel Spinner":"转盘抽奖","2048 Game":"2048 游戏","BMI Calculator":"BMI 计算器","Perfect match! Soulmates! 💞":"天作之合！灵魂伴侣！💞","Love is in the air! 💘":"空气中弥漫着爱的味道！💘","A match made in heaven! 👰💍🤵":"上天注定的一对！👰💍🤵","Great chemistry! 💗":"默契十足！💗","There's something special here! ✨":"这里有种特别的化学反应！✨","Strong connection detected! 💕":"检测到强力连接！💕","Good potential, nurture it! 🌱":"潜力不错，好好培育！🌱","Could work with some effort! 💪":"努力一下就有戏！💪","Friends first, love later? 😊":"先做朋友，后有爱情？😊","It's complicated... 😬":"有点复杂...😬","Opposites attract? Maybe... 🤔":"异性相吸？也许吧...🤔","Better as friends? 😅":"还是做朋友吧？😅","Yikes! Maybe try someone else? 😂":"哎呀！要不换个人试试？😂","The stars say... no. 🙅":"星辰说...不行。🙅","Friendship zone activated! 🤝":"友谊区已激活！🤝","${window._loveNames} got ${window._loveScore}% compatibility! Test yours:":"${window._loveNames} 的契合度是 ${window._loveScore}%！快来测测你的：","Copied! Share with friends:\n\n":"已复制！分享给朋友：\n\n"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>

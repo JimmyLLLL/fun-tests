@@ -300,7 +300,7 @@ function renderQuestion() {
     const progress = Math.round((currentQ / QUESTIONS.length) * 100);
     quizArea.innerHTML = `
         <div class="quiz-question">
-            <div class="quiz-progress">Question ${currentQ + 1} of ${QUESTIONS.length}</div>
+            <div class="quiz-progress">${(navigator.language||'').toLowerCase().startsWith('zh')?'第 '+(currentQ + 1)+' 题，共 '+QUESTIONS.length+' 题':'Question '+(currentQ + 1)+' of '+QUESTIONS.length}</div>
             <div class="quiz-bar"><div class="quiz-bar-fill" style="width:${progress}%"></div></div>
             <div class="quiz-q-text">${q.q}</div>
             ${q.a.map((opt, i) => `<button class="quiz-option" onclick="answer(${i})">${opt.t}</button>`).join("")}
@@ -368,5 +368,36 @@ function restart() {
 
 renderQuestion();
 </script>
+
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"What Animal Are You? — Fun Spirit Animal Personality Test":"你是哪种动物？— 趣味灵兽性格测试","Home":"首页","Animal":"动物","Love":"爱情","Age":"年龄","🏠 Home":"🏠 首页","What Animal Are You? 🦁":"你是哪种动物？🦁","Answer 8 fun questions to discover your spirit animal!":"回答 8 个趣味问题，发现你的灵兽！","🔗 Related Tests":"🔗 相关测试","Love Calculator":"爱情计算器","Psychological Age":"心理年龄","👁️ Views":"👁️ 浏览","👤 Visitors":"👤 访客","What Animal Are You?":"你是哪种动物？","Have you ever wondered which animal matches your personality? This fun quiz asks 8 questions about how you socialize, make decisions, and handle challenges. Based on your answers, you'll discover your spirit animal — are you a brave lion, a wise owl, a playful dolphin, a loyal wolf, or an independent cat?":"你有没有想过哪种动物和你的性格最像？这个趣味测试会问你 8 个问题，关于你的社交方式、决策风格和应对挑战的态度。根据你的回答，你将发现自己的灵兽——你是勇敢的狮子、睿智的猫头鹰、活泼的海豚、忠诚的狼，还是独立的猫？","Spirit Animal Meanings":"灵兽含义","🦁 Lion — Natural leader, brave, confident, and charismatic. You take charge and protect your pack.":"🦁 狮子 — 天生的领导者，勇敢、自信、有魅力。你勇于担当，守护你的族群。","🦉 Owl — Wise, thoughtful, observant, and strategic. You see what others miss and plan ahead.":"🦉 猫头鹰 — 睿智、深思熟虑、善于观察、有战略眼光。你能看到别人忽略的细节，并提前规划。","🐬 Dolphin — Playful, social, creative, and energetic. You spread joy and connect easily with others.":"🐬 海豚 — 活泼、爱社交、富有创意、精力充沛。你传递快乐，轻松与人打成一片。","🐺 Wolf — Loyal, team-oriented, determined, and adaptable. You thrive in a pack but can stand alone.":"🐺 狼 — 忠诚、有团队精神、坚定、适应力强。你在群体中如鱼得水，也能独当一面。","🐱 Cat — Independent, curious, calm, and self-sufficient. You do things your own way.":"🐱 猫 — 独立、好奇、冷静、自给自足。你按自己的方式做事。","🐘 Elephant — Patient, reliable, empathetic, and strong. You never forget and always protect loved ones.":"🐘 大象 — 耐心、可靠、有同理心、强大。你从不忘记，总是守护所爱之人。","🦊 Fox — Clever, quick-witted, adaptable, and resourceful. You find creative solutions fast.":"🦊 狐狸 — 聪明、机智、适应力强、足智多谋。你能迅速找到有创意的解决方案。","🐼 Panda — Easygoing, peaceful, gentle, and unique. You go with the flow and enjoy life.":"🐼 熊猫 — 随和、平和、温柔、独特。你顺其自然，享受生活。","Share Your Result":"分享你的结果","Once you get your result, share it with friends and challenge them to take the test too! Compare your spirit animals and see who matches. It's a great conversation starter and a fun way to learn about each other.":"得到结果后，分享给朋友，挑战他们也来测一测！比较你们的灵兽，看看谁和谁更搭。这是一个绝佳的聊天话题，也是了解彼此的有趣方式。","All Tests":"全部测试","Privacy":"隐私","Contact":"联系","FunTests © 2026 · What Animal Are You?":"FunTests © 2026 · 你是哪种动物？","More:":"更多：","JimmyWithFiona — Home":"JimmyWithFiona — 首页","Brick Breaker Game":"打砖块游戏","Mortgage Calculator":"房贷计算器","Wheel Spinner":"转盘抽奖","2048 Game":"2048 游戏","BMI Calculator":"BMI 计算器","It's Friday night. What are you doing?":"周五晚上，你在做什么？","Hosting a party or leading a group activity":"举办派对或带领一群人活动","Reading a book or watching a documentary":"读一本书或看一部纪录片","Hanging out with close friends":"和好朋友一起闲逛","Doing my own thing, whatever I feel like":"做自己的事，随心所欲","In a group project, you are the one who...":"在小组项目中，你是那个...","Takes charge and assigns tasks":"负责指挥并分配任务","Researches and plans the strategy":"负责调研和制定策略","Keeps everyone motivated and having fun":"让大家都保持干劲和开心","Works independently on my part":"独立完成自己那部分","When facing a challenge, you...":"面对挑战时，你会...","Charge in headfirst with confidence":"自信地一头扎进去","Analyze all options before acting":"行动前分析所有选项","Rally your friends to tackle it together":"召集朋友一起应对","Find a creative workaround":"找到一个有创意的变通办法","Your ideal vacation is...":"你理想的假期是...","An adventure trip with a big group":"和一大群人的冒险之旅","A quiet cabin with books and nature":"有书有自然的安静小木屋","A road trip with your best friends":"和挚友一起的公路旅行","Somewhere unique and off the beaten path":"某个独特、人迹罕至的地方","How do you handle conflict?":"你如何处理冲突？","Confront it directly and resolve it":"直接面对并解决它","Stay calm and think before responding":"保持冷静，回应前先思考","Talk it out and find common ground":"沟通清楚，找到共同点","Avoid it or find a clever exit":"回避它或巧妙脱身","What's your communication style?":"你的沟通风格是什么？","Bold, direct, and confident":"大胆、直接、自信","Thoughtful, precise, and deep":"深思熟虑、精准、有深度","Warm, expressive, and playful":"热情、善于表达、爱玩","Quiet, selective, and independent":"安静、有所选择、独立","Pick a word that describes you:":"选一个描述你的词：","Brave":"勇敢","Wise":"睿智","Fun":"有趣","Free":"自由","What do you value most?":"你最看重什么？","Respect and achievement":"尊重与成就","Knowledge and truth":"知识与真理","Friendship and connection":"友谊与连接","Freedom and peace":"自由与平和","Lion":"狮子","Confident":"自信","Natural Leader":"天生领袖","Charismatic":"有魅力","You're a natural-born leader who isn't afraid to take charge. People look up to your courage and confidence. You protect those you care about and always rise to a challenge.":"你是天生的领导者，不怕担起重任。人们敬佩你的勇气与自信。你守护在乎的人，总是迎难而上。","Owl":"猫头鹰","Observant":"善于观察","Strategic":"有战略眼光","Thoughtful":"深思熟虑","You're the wise one who sees what others miss. You think before you act and value knowledge above all. Your friends come to you for advice because you always have the right answer.":"你是那个能看见别人忽略之物的智者。你三思而后行，视知识为至上。朋友遇到问题会来找你，因为你总能给出对的答案。","Dolphin":"海豚","Playful":"爱玩","Social":"爱社交","Creative":"富有创意","Energetic":"精力充沛","You're the life of the party! Playful and social, you connect with everyone you meet. Your positive energy is contagious and you make any situation more fun.":"你是派对的灵魂！活泼又爱社交，你和遇到的每个人都能打成一片。你的正能量会感染他人，让任何场合都更有趣。","Wolf":"狼","Loyal":"忠诚","Team Player":"团队型选手","Determined":"坚定","Protective":"有保护欲","You're fiercely loyal and thrive in a team. You value your pack above all and will go to great lengths to protect them. Determined and reliable, you're the friend everyone can count on.":"你极度忠诚，在团队中如鱼得水。你把族群看得比什么都重，会不遗余力地保护他们。坚定又可靠，你是人人都能信赖的朋友。","Cat":"猫","Independent":"独立","Curious":"好奇","Calm":"冷静","Self-sufficient":"自给自足","You march to your own beat. Independent and curious, you do things your way and don't follow the crowd. You're comfortable being alone and enjoy your freedom.":"你按自己的节奏行事。独立又好奇，你用自己的方式做事，不随大流。你享受独处，也珍惜自由。","Elephant":"大象","Patient":"耐心","Reliable":"可靠","Empathetic":"有同理心","Strong":"强大","You're the steady rock that others lean on. Patient and empathetic, you never forget a kindness and always remember your loved ones. Your strength is quiet but unshakeable.":"你是别人依靠的稳石。耐心又有同理心，你从不忘记一份善意，也始终记挂着所爱之人。你的力量安静却不可撼动。","Fox":"狐狸","Clever":"聪明","Quick-witted":"机智","Adaptable":"适应力强","Resourceful":"足智多谋","You're clever and quick on your feet. You find creative solutions to any problem and adapt to any situation. People admire your wit and resourcefulness.":"你聪明又反应快。任何问题你都能找到有创意的解法，任何情境你都能适应。人们钦佩你的机智与足智多谋。","Panda":"熊猫","Easygoing":"随和","Peaceful":"平和","Gentle":"温柔","Unique":"独特","You're chill, easygoing, and uniquely yourself. You go with the flow and don't let stress get to you. Your gentle nature makes everyone feel calm around you.":"你随性、随和，独一无二。你顺其自然，不让压力近身。你温柔的性情让身边每个人都感到平静。","Question ${currentQ + 1} of ${QUESTIONS.length}":"第 ${currentQ + 1} 题，共 ${QUESTIONS.length} 题","You are a ${animal.name}!":"你是一只${animal.name}！","📤 Share Result":"📤 分享结果","🔄 Retake Test":"🔄 重做测试","I'm a ${emoji} ${name}! What animal are you? Take the test:":"我是 ${emoji} ${name}！你是哪种动物？快来测一测：","Copied! Paste to share with friends:\n\n":"已复制！粘贴分享给朋友：\n\n"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>
